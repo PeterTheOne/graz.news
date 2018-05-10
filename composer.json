@@ -10,6 +10,8 @@
     ],
     "require": {
         "t1gor/robots-txt-parser": "^0.2.3",
-        "dg/rss-php": "^1.2"
+        "dg/rss-php": "^1.2",
+        "ext-pdo_sqlite": "*",
+        "ext-simplexml": "*"
     }
 }
