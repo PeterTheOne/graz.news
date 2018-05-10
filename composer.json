@@ -1,0 +1,15 @@
+{
+    "name": "petertheone/graz.news",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PeterTheOne",
+            "email": "petertheone@gmail.com"
+        }
+    ],
+    "require": {
+        "t1gor/robots-txt-parser": "^0.2.3",
+        "dg/rss-php": "^1.2"
+    }
+}

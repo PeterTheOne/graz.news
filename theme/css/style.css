@@ -1,0 +1,63 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../images/graz-roofs.JPG');
+}
+
+body > header {
+    text-align: center;
+}
+
+h1 {
+    margin: 1rem 0 2rem 0;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkgreen;
+    text-decoration: underline;
+}
+
+article {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 0.2rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    padding: 1rem;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+article header {
+    color: darkgreen;
+}
+
+body > footer {
+    padding: 10rem 0 2rem 0;
+
+    text-align: center;
+    color: lightgrey;
+}
+
+body > footer a {
+    color: lightgrey;
+}
+
+body > footer a:hover {
+    color: lightgreen;
+}

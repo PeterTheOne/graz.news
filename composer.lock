@@ -1,0 +1,204 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "69e9e8813fa36436dd5956b15d26ae87",
+    "packages": [
+        {
+            "name": "dg/rss-php",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dg/rss-php.git",
+                "reference": "b33661748d89d8c0c288e8d86feada6018d05031"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dg/rss-php/zipball/b33661748d89d8c0c288e8d86feada6018d05031",
+                "reference": "b33661748d89d8c0c288e8d86feada6018d05031",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                }
+            ],
+            "description": "RSS & Atom Feeds for PHP is a very small and easy-to-use library for consuming an RSS and Atom feed",
+            "homepage": "https://github.com/dg/rss-php",
+            "keywords": [
+                "atom",
+                "feed",
+                "rss"
+            ],
+            "time": "2015-07-02T11:54:05+00:00"
+        },
+        {
+            "name": "t1gor/robots-txt-parser",
+            "version": "v0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/t1gor/Robots.txt-Parser-Class.git",
+                "reference": "20dbf68534d042ffc3d4cf6381164d86087c806f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/t1gor/Robots.txt-Parser-Class/zipball/20dbf68534d042ffc3d4cf6381164d86087c806f",
+                "reference": "20dbf68534d042ffc3d4cf6381164d86087c806f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": ">=0.2",
+                "phpunit/phpunit": ">=3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "source/robotstxtparser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Timoshenkov",
+                    "email": "igor.timoshenkov@gmail.com",
+                    "role": "creator"
+                },
+                {
+                    "name": "Jan-Petter Gundersen",
+                    "email": "europe.jpg@gmail.com",
+                    "role": "contributor"
+                }
+            ],
+            "description": "PHP class to parse robots.txt rules according to Google, Yandex, W3C and The Web Robots Pages specifications.",
+            "homepage": "https://github.com/t1gor/Robots.txt-Parser-Class",
+            "keywords": [
+                "The Web Robots Pages",
+                "W3C",
+                "google",
+                "parser",
+                "robots.txt",
+                "yandex"
+            ],
+            "time": "2016-08-10T19:04:18+00:00"
+        },
+        {
+            "name": "webignition/disallowed-character-terminated-string",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webignition/disallowed-character-terminated-string.git",
+                "reference": "25d12868c82b56bc0d04278e31594385ba4dddc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webignition/disallowed-character-terminated-string/zipball/25d12868c82b56bc0d04278e31594385ba4dddc4",
+                "reference": "25d12868c82b56bc0d04278e31594385ba4dddc4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Cram",
+                    "email": "jon@webignition.net"
+                }
+            ],
+            "description": "A string terminated by one or more disallowed characters",
+            "homepage": "https://github.com/webignition/disallowed-character-terminated-string",
+            "keywords": [
+                "string",
+                "terminated"
+            ],
+            "time": "2012-07-16T21:29:50+00:00"
+        },
+        {
+            "name": "webignition/robots-txt-file",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webignition/robots-txt-file.git",
+                "reference": "906d4e330db47b98ea6177df2e99ec96bb98e71e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webignition/robots-txt-file/zipball/906d4e330db47b98ea6177df2e99ec96bb98e71e",
+                "reference": "906d4e330db47b98ea6177df2e99ec96bb98e71e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "webignition/disallowed-character-terminated-string": ">=1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webignition\\RobotsTxt\\": "src/",
+                    "webignition\\Tests\\RobotsTxt\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Cram",
+                    "email": "jon@webignition.net"
+                }
+            ],
+            "description": "Models a robots.txt file",
+            "homepage": "https://github.com/webignition/robots-txt-file",
+            "keywords": [
+                "parser",
+                "robots.txt"
+            ],
+            "time": "2018-03-19T11:16:44+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
