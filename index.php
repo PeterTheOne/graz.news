@@ -1,4 +1,5 @@
 <?php
+// todo: remove
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -23,7 +24,7 @@ function loadTemplate($page, $params, $layout = true) {
     return $content;
 }
 
-$articles = $pdo->query('SELECT * FROM articles ORDER BY created DESC');
+$articles = $pdo->query('SELECT * FROM articles ORDER BY created DESC LIMIT 27');
 
 $params = [
     'articles' => $articles
