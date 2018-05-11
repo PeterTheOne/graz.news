@@ -2,7 +2,7 @@ title,site,feed,robots,filter
 Kleine Zeitung,https://www.kleinezeitung.at/,http://www.kleinezeitung.at/rss/nachrichten_stmk,https://www.kleinezeitung.at/robots.txt,TRUE
 Futter,http://futter.kleinezeitung.at/,http://futter.kleinezeitung.at/tag/graz/feed/,http://futter.kleinezeitung.at/robots.txt,FALSE
 steiermark.orf.at,http://steiermark.orf.at/news/,https://rss.orf.at/steiermark.xml,http://steiermark.orf.at/robots.txt,TRUE
-Neues Volksblatt,https://volksblatt.at,https://volksblatt.at/search/graz/feed/rss2/,https://volksblatt.at/robots.txt,FALSE
+Neues Volksblatt,https://volksblatt.at,https://volksblatt.at/search/graz/feed/rss2/,https://volksblatt.at/robots.txt,TRUE
 annenpost.at,http://www.annenpost.at/,http://www.annenpost.at/feed/,http://www.annenpost.at/robots.txt,FALSE
 meinbezirk.at,https://www.meinbezirk.at/steiermark/graz/,https://www.meinbezirk.at/feed/action/mode/realm/ID/1874/,https://www.meinbezirk.at/robots.txt,FALSE
 Heute,http://www.heute.at,http://api.heute.at/rss/view/48,http://www.heute.at/robots.txt,TRUE
