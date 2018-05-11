@@ -42,7 +42,7 @@ foreach ($newsSites as $newsSite) {
     file_put_contents($cacheFile, $robotsContent);
     $robots = new RobotsTxtParser($robotsContent);
     $robots->setUserAgent($userAgent);
-    $allowed =  $robots->isAllowed($newsSite['feed']);
+    $allowed = $robots->isAllowed($newsSite['feed']);
     $delay = $robots->getDelay($userAgent);
     $requested = (new DateTime())->getTimestamp();
 

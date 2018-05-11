@@ -7,3 +7,8 @@ annenpost.at,http://www.annenpost.at/,http://www.annenpost.at/feed/,http://www.a
 meinbezirk.at,https://www.meinbezirk.at/steiermark/graz/,https://www.meinbezirk.at/feed/action/mode/realm/ID/1874/,https://www.meinbezirk.at/robots.txt,TRUE
 Heute,http://www.heute.at,http://api.heute.at/rss/view/48,http://www.heute.at/robots.txt,TRUE
 Stadt Graz,https://www.graz.at/,https://www.graz.at/cms/ziel/8345527/DE/,https://www.graz.at/robots.txt,FALSE
+Regionews.at,http://www.regionews.at/,http://www.regionews.at/rss/general.news.rss.php,http://www.regionews.at/robots.txt,TRUE
+krone.at,http://www.krone.at,http://api.krone.at/v1/rss/rssfeed.html,http://www.krone.at/robots.txt,TRUE
+derStandard.at,https://derstandard.at/r825/Steiermark,https://derstandard.at/?page=rss&ressortid=825,https://derstandard.at/robots.txt,TRUE
+Wiener Zeitung Online,https://www.wienerzeitung.at,https://www.wienerzeitung.at/_export/rss/nachrichten/politik/index.rss,https://www.wienerzeitung.at/robots.txt,TRUE
+kurier.at,https://kurier.at/,https://kurier.at/xml/rss,https://kurier.at/robots.txt,TRUE
