@@ -60,7 +60,6 @@ foreach ($newsSites as $newsSite) {
     }
 
     // todo: do something with delay
-    // todo: set bot name in request
 
     $feed = new SimplePie();
     $feed->set_feed_url($newsSite['feed']);
