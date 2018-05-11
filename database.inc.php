@@ -16,6 +16,18 @@ $pdo->query('
 ');
 
 $pdo->query('
+    CREATE TABLE IF NOT EXISTS robots (
+        site TEXT,
+        link TEXT,
+        content TEXT,
+        status NUMERIC,
+        allowed NUMERIC,
+        delay NUMERIC,
+        requested INTEGER
+    )
+');
+
+$pdo->query('
     CREATE TABLE IF NOT EXISTS articles (
         site TEXT,
         title TEXT,
@@ -38,6 +50,26 @@ $insertNewsSite = $pdo->prepare('
         :feed,
         :robots,
         :filter
+    )
+');
+
+$insertRobots = $pdo->prepare('
+    INSERT INTO robots (
+        site,
+        link,
+        content,
+        status,
+        allowed,
+        delay,
+        requested
+    ) VALUES (
+        :site,
+        :link,
+        :content,
+        :status,
+        :allowed,
+        :delay,
+        :requested
     )
 ');
 

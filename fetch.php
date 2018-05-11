@@ -21,15 +21,43 @@ foreach ($newsSites as $newsSite) {
 }
 
 foreach ($newsSites as $newsSite) {
-    $robotsTxt = file_get_contents($newsSite['robots']);
-    $robots = new RobotsTxtParser($robotsTxt);
+    $robotsContent = file_get_contents($newsSite['robots']);
+    $robots = new RobotsTxtParser($robotsContent);
     $robots->setUserAgent($userAgent);
-    //echo $robots->getDelay($userAgent) . "\n";
-    //echo $robots->isAllowed($newsSite['feed']) . "\n";
-    // todo: do something with robots isAllowed
+    $allowed =  $robots->isAllowed($newsSite['feed']);
+    $delay = $robots->getDelay($userAgent);
+    $requested = (new DateTime())->getTimestamp();
+
+    $insertRobots->bindParam(':site', $newsSite['title']);
+    $insertRobots->bindParam(':link', $newsSite['robots']);
+    $insertRobots->bindParam(':content', $robotsContent);
+    //$insertRobots->bindParam(':status', );
+    $insertRobots->bindParam(':allowed', $allowed, PDO::PARAM_BOOL);
+    $insertRobots->bindParam(':delay', $delay);
+    $insertRobots->bindParam(':requested', $requested);
+    $insertRobots->execute();
+
+    if (!$allowed) {
+        continue;
+    }
+
+    // todo: do something with delay
+    // todo: set bot name in request
 
     $feed = Feed::loadRss($newsSite['feed']);
     foreach ($feed->item as $item) {
+        $relevance = true;
+        if ($newsSite['filter'] === 'TRUE') {
+            //echo $newsSite['site'] . "\n";
+            //echo $item->title . "\n";
+            //echo $item->description . "\n";
+            $relevance = stripos($item->title . $item->description, 'graz') !== FALSE;
+            //echo ($relevance ? 'relevant' : 'not relevant') . "\n";
+        }
+        if (!$relevance) {
+            continue;
+        }
+
         $insertArticle->bindParam(':site', $newsSite['title']);
         $insertArticle->bindParam(':title', $item->title);
         $insertArticle->bindParam(':link', $item->link);
