@@ -1,8 +1,8 @@
 <?php
 
-require 'vendor/autoload.php';
-require 'database.inc.php';
-require 'functions.inc.php';
+require_once 'vendor/autoload.php';
+require_once 'database.inc.php';
+require_once 'functions.inc.php';
 
 $userAgent = 'Graz.News';
 $newsSitesCsvPath = 'news-sites.csv';
@@ -30,7 +30,16 @@ foreach ($newsSites as $newsSite) {
     );
     $context = stream_context_create($options);
 
+    $cacheFile = './cache/' . $newsSite['title'] . '-robots.txt';
+    if (file_exists($cacheFile)) {
+        $cacheDate = (new DateTime())->setTimestamp(filemtime($cacheFile));
+        if ((new DateTime())->diff($cacheDate)->format('%i') < 30) {
+            continue;
+        }
+    }
+
     $robotsContent = file_get_contents($newsSite['robots'], false, $context);
+    file_put_contents($cacheFile, $robotsContent);
     $robots = new RobotsTxtParser($robotsContent);
     $robots->setUserAgent($userAgent);
     $allowed =  $robots->isAllowed($newsSite['feed']);

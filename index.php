@@ -1,12 +1,9 @@
 <?php
-// todo: remove
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-require 'vendor/autoload.php';
-require 'database.inc.php';
-require 'functions.inc.php';
+require_once 'vendor/autoload.php';
+require_once 'database.inc.php';
+require_once 'functions.inc.php';
+//require_once 'fetch.php';
 
 define('THEMES_PATH', 'theme/');
 
