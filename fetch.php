@@ -2,44 +2,27 @@
 
 require 'vendor/autoload.php';
 require 'database.inc.php';
+require 'functions.inc.php';
 
 $userAgent = 'GrazNews';
+$newsSitesCsvPath = 'news-sites.csv';
 
-$newsSites = [
-    [
-        'title' => 'Stadt Graz',
-        'site' => 'https://www.graz.at/',
-        'feed' => 'https://www.graz.at/cms/ziel/8345527/DE/',
-        'robots' => 'https://www.graz.at/robots.txt',
-        'filter' => false
-    ],
-    [
-        'title' => 'Futter',
-        'site' => 'http://futter.kleinezeitung.at/',
-        'feed' => 'http://futter.kleinezeitung.at/tag/graz/feed/',
-        'robots' => 'http://futter.kleinezeitung.at/robots.txt',
-        'filter' => false
-    ]
-];
+$newsSites = csvToArray($newsSitesCsvPath);
 
-$insertArticle = $pdo->prepare('
-    INSERT OR IGNORE INTO
-     articles (
-        site,
-        title,
-        link,
-        created
-    ) VALUES (
-        :site,
-        :title,
-        :link,
-        :created
-    )
-');
+foreach ($newsSites as $newsSite) {
+    $filter = $newsSite['filter'] === 'TRUE' ? true : false;
 
+    $insertNewsSite->bindParam(':title', $newsSite['title']);
+    $insertNewsSite->bindParam(':site', $newsSite['site']);
+    $insertNewsSite->bindParam(':feed', $newsSite['feed']);
+    $insertNewsSite->bindParam(':robots', $newsSite['robots']);
+    $insertNewsSite->bindParam(':filter', $filter, PDO::PARAM_BOOL);
+    $insertNewsSite->execute();
+}
 
-foreach($newsSites as $newsSite) {
-    $robots = new RobotsTxtParser(file_get_contents($newsSite['robots']));
+foreach ($newsSites as $newsSite) {
+    $robotsTxt = file_get_contents($newsSite['robots']);
+    $robots = new RobotsTxtParser($robotsTxt);
     $robots->setUserAgent($userAgent);
     //echo $robots->getDelay($userAgent) . "\n";
     //echo $robots->isAllowed($newsSite['feed']) . "\n";
