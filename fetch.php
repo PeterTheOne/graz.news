@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 require 'database.inc.php';
 require 'functions.inc.php';
 
-$userAgent = 'GrazNews';
+$userAgent = 'Graz.News';
 $newsSitesCsvPath = 'news-sites.csv';
 
 $newsSites = csvToArray($newsSitesCsvPath);
@@ -21,7 +21,16 @@ foreach ($newsSites as $newsSite) {
 }
 
 foreach ($newsSites as $newsSite) {
-    $robotsContent = file_get_contents($newsSite['robots']);
+    $options = array(
+        'http'=>array(
+            'method'=>"GET",
+            'header'=>
+                "User-Agent: " . $userAgent . "\r\n"
+        )
+    );
+    $context = stream_context_create($options);
+
+    $robotsContent = file_get_contents($newsSite['robots'], false, $context);
     $robots = new RobotsTxtParser($robotsContent);
     $robots->setUserAgent($userAgent);
     $allowed =  $robots->isAllowed($newsSite['feed']);
@@ -47,6 +56,7 @@ foreach ($newsSites as $newsSite) {
     $feed = new SimplePie();
     $feed->set_feed_url($newsSite['feed']);
     $feed->set_cache_location('./cache');
+    $feed->set_useragent($userAgent);
     $feed->init();
 
     foreach ($feed->get_items() as $item) {
