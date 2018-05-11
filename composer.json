@@ -10,7 +10,7 @@
     ],
     "require": {
         "t1gor/robots-txt-parser": "^0.2.3",
-        "dg/rss-php": "^1.2",
+        "simplepie/simplepie": "^1.5",
         "ext-pdo_sqlite": "*",
         "ext-simplexml": "*"
     }

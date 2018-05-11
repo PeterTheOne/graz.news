@@ -44,14 +44,24 @@ foreach ($newsSites as $newsSite) {
     // todo: do something with delay
     // todo: set bot name in request
 
-    $feed = Feed::loadRss($newsSite['feed']);
-    foreach ($feed->item as $item) {
+    $feed = new SimplePie();
+    $feed->set_feed_url($newsSite['feed']);
+    $feed->set_cache_location('./cache');
+    $feed->init();
+
+    foreach ($feed->get_items() as $item) {
+        $title = $item->get_title();
+        $description = $item->get_description();
+        $link = $item->get_permalink();
+        $timestamp = $item->get_date('U');
+
+
         $relevance = true;
         if ($newsSite['filter'] === 'TRUE') {
             //echo $newsSite['site'] . "\n";
             //echo $item->title . "\n";
             //echo $item->description . "\n";
-            $relevance = stripos($item->title . $item->description, 'graz') !== FALSE;
+            $relevance = stripos($title . $description . $link, 'graz') !== FALSE;
             //echo ($relevance ? 'relevant' : 'not relevant') . "\n";
         }
         if (!$relevance) {
@@ -59,10 +69,9 @@ foreach ($newsSites as $newsSite) {
         }
 
         $insertArticle->bindParam(':site', $newsSite['title']);
-        $insertArticle->bindParam(':title', $item->title);
-        $insertArticle->bindParam(':link', $item->link);
-        $insertArticle->bindParam(':created', $item->timestamp);
+        $insertArticle->bindParam(':title', $title);
+        $insertArticle->bindParam(':link', $link);
+        $insertArticle->bindParam(':created', $timestamp);
         $insertArticle->execute();
     }
 }
-

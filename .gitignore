@@ -1,3 +1,5 @@
 /vendor/
 .vagrant
 database.sqlite
+cache/*
+!cache/.keep
