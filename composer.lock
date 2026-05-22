@@ -1,38 +1,55 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec1665a88902daac1857dfd5ac845d2f",
+    "content-hash": "573145e702ec7a514ead26683bc42dec",
     "packages": [
         {
             "name": "simplepie/simplepie",
-            "version": "1.5.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simplepie/simplepie.git",
-                "reference": "db9fff27b6d49eed3d4047cd3211ec8dba2f5d6e"
+                "reference": "76cccb1b2c5dcaf44f304c925ab30c0f48643992"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simplepie/simplepie/zipball/db9fff27b6d49eed3d4047cd3211ec8dba2f5d6e",
-                "reference": "db9fff27b6d49eed3d4047cd3211ec8dba2f5d6e",
+                "url": "https://api.github.com/repos/simplepie/simplepie/zipball/76cccb1b2c5dcaf44f304c925ab30c0f48643992",
+                "reference": "76cccb1b2c5dcaf44f304c925ab30c0f48643992",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "ext-pcre": "*",
+                "ext-xml": "*",
+                "ext-xmlreader": "*",
+                "php": ">=7.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4 || ~5"
+                "donatj/mock-webserver": "^2.7",
+                "friendsofphp/php-cs-fixer": "^2.19 || ^3.8",
+                "mf2/mf2": "^0.5.0",
+                "phpstan/phpstan": "~1.12.2",
+                "phpunit/phpunit": "^8 || ^9 || ^10",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/simple-cache": "^1 || ^2 || ^3"
             },
             "suggest": {
+                "ext-curl": "",
+                "ext-iconv": "",
+                "ext-intl": "",
+                "ext-mbstring": "",
                 "mf2/mf2": "Microformat module that allows for parsing HTML for microformats"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
                     "SimplePie": "library"
+                },
+                "psr-4": {
+                    "SimplePie\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -46,8 +63,8 @@
                     "role": "Creator, alumnus developer"
                 },
                 {
-                    "name": "Geoffrey Sneddon",
-                    "homepage": "http://gsnedders.com/",
+                    "name": "Sam Sneddon",
+                    "homepage": "https://gsnedders.com/",
                     "role": "Alumnus developer"
                 },
                 {
@@ -64,29 +81,34 @@
                 "feeds",
                 "rss"
             ],
-            "time": "2017-11-12T02:03:34+00:00"
+            "support": {
+                "issues": "https://github.com/simplepie/simplepie/issues",
+                "source": "https://github.com/simplepie/simplepie/tree/1.9.0"
+            },
+            "time": "2025-09-12T06:34:27+00:00"
         },
         {
             "name": "t1gor/robots-txt-parser",
-            "version": "v0.2.3",
+            "version": "v0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/t1gor/Robots.txt-Parser-Class.git",
-                "reference": "20dbf68534d042ffc3d4cf6381164d86087c806f"
+                "reference": "ac4159089c1a01b64db070f1240427bba2333040"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/t1gor/Robots.txt-Parser-Class/zipball/20dbf68534d042ffc3d4cf6381164d86087c806f",
-                "reference": "20dbf68534d042ffc3d4cf6381164d86087c806f",
+                "url": "https://api.github.com/repos/t1gor/Robots.txt-Parser-Class/zipball/ac4159089c1a01b64db070f1240427bba2333040",
+                "reference": "ac4159089c1a01b64db070f1240427bba2333040",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.4.0"
+                "php": ">=5.5.0",
+                "vipnytt/useragentparser": "^1.0"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": ">=0.2",
-                "phpunit/phpunit": ">=3.7"
+                "phpunit/phpunit": "~3.7"
             },
             "type": "library",
             "autoload": {
@@ -106,7 +128,7 @@
                 },
                 {
                     "name": "Jan-Petter Gundersen",
-                    "email": "europe.jpg@gmail.com",
+                    "email": "jpg@vipnytt.no",
                     "role": "contributor"
                 }
             ],
@@ -120,18 +142,89 @@
                 "robots.txt",
                 "yandex"
             ],
-            "time": "2016-08-10T19:04:18+00:00"
+            "support": {
+                "issues": "https://github.com/t1gor/Robots.txt-Parser-Class/issues",
+                "source": "https://github.com/t1gor/Robots.txt-Parser-Class/tree/v0.2.5"
+            },
+            "time": "2020-09-12T12:21:10+00:00"
+        },
+        {
+            "name": "vipnytt/useragentparser",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VIPnytt/UserAgentParser.git",
+                "reference": "8eae23066be787dd0efb56ac933cfe98177049f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VIPnytt/UserAgentParser/zipball/8eae23066be787dd0efb56ac933cfe98177049f6",
+                "reference": "8eae23066be787dd0efb56ac933cfe98177049f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "vipnytt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "VIP nytt AS",
+                    "email": "support@vipnytt.no",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Jan-Petter Gundersen",
+                    "email": "jpg@vipnytt.no",
+                    "role": "Developer"
+                }
+            ],
+            "description": "User-Agent parser for robot rule sets",
+            "homepage": "https://github.com/VIPnytt/UserAgentParser",
+            "keywords": [
+                "REP",
+                "Robots Exclusion Protocol",
+                "Robots meta tag",
+                "crawler",
+                "robot",
+                "robots.txt",
+                "spider",
+                "user-agent",
+                "useragent",
+                "x-robots-tag"
+            ],
+            "support": {
+                "docs": "https://github.com/VIPnytt/UserAgentParser/wiki",
+                "email": "support@vipnytt.no",
+                "issues": "https://github.com/VIPnytt/UserAgentParser/issues",
+                "source": "https://github.com/VIPnytt/UserAgentParser",
+                "wiki": "https://github.com/VIPnytt/UserAgentParser/wiki"
+            },
+            "time": "2025-02-21T15:01:09+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+        "php": ">=8.1",
         "ext-pdo_sqlite": "*",
         "ext-simplexml": "*"
     },
-    "platform-dev": []
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
