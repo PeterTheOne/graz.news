@@ -17,7 +17,7 @@ $pdo->query('
 
 $pdo->query('
     CREATE TABLE IF NOT EXISTS robots (
-        site TEXT,
+        site TEXT UNIQUE,
         link TEXT,
         content TEXT,
         status NUMERIC,
@@ -26,6 +26,25 @@ $pdo->query('
         requested INTEGER
     )
 ');
+
+// Legacy `robots` had no UNIQUE(site), so fetch.php appended a fresh row every
+// cron run and ballooned the table. Wipe once if the constraint is missing;
+// cron repopulates within two hours.
+$robotsSchema = $pdo->query("SELECT sql FROM sqlite_master WHERE type='table' AND name='robots'")->fetchColumn();
+if (stripos($robotsSchema, 'UNIQUE') === false) {
+    $pdo->exec('
+        DROP TABLE robots;
+        CREATE TABLE robots (
+            site TEXT UNIQUE,
+            link TEXT,
+            content TEXT,
+            status NUMERIC,
+            allowed NUMERIC,
+            delay NUMERIC,
+            requested INTEGER
+        )
+    ');
+}
 
 $pdo->query('
     CREATE TABLE IF NOT EXISTS articles (
@@ -54,7 +73,7 @@ $insertNewsSite = $pdo->prepare('
 ');
 
 $insertRobots = $pdo->prepare('
-    INSERT INTO robots (
+    INSERT OR REPLACE INTO robots (
         site,
         link,
         content,
