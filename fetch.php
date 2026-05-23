@@ -31,20 +31,18 @@ foreach ($newsSites as $newsSite) {
     $context = stream_context_create($options);
 
     $cacheFile = './cache/' . $newsSite['title'] . '-robots.txt';
-    if (file_exists($cacheFile)) {
-        $cacheDate = (new DateTime())->setTimestamp(filemtime($cacheFile));
-        if ((new DateTime())->diff($cacheDate)->format('%i') < 30) {
-            continue;
-        }
+    if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 86400) {
+        $robotsContent = file_get_contents($cacheFile);
+    } else {
+        $robotsContent = file_get_contents($newsSite['robots'], false, $context);
+        file_put_contents($cacheFile, $robotsContent);
     }
 
-    $robotsContent = file_get_contents($newsSite['robots'], false, $context);
-    file_put_contents($cacheFile, $robotsContent);
     $robots = new RobotsTxtParser($robotsContent);
     $robots->setUserAgent($userAgent);
     $allowed = $robots->isAllowed($newsSite['feed']);
     $delay = $robots->getDelay($userAgent);
-    $requested = (new DateTime())->getTimestamp();
+    $requested = time();
 
     $insertRobots->bindParam(':site', $newsSite['title']);
     $insertRobots->bindParam(':link', $newsSite['robots']);
