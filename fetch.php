@@ -94,6 +94,7 @@ foreach ($newsSites as $newsSite) {
         $insertArticle->bindParam(':title', $title);
         $insertArticle->bindParam(':link', $link);
         $insertArticle->bindParam(':created', $timestamp);
+        $insertArticle->bindParam(':description', $description);
         $insertArticle->execute();
     }
 }

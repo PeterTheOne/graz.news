@@ -1,5 +1,6 @@
 /vendor/
 .vagrant
 database.sqlite
+composer.phar
 cache/*
 !cache/.keep

@@ -13,6 +13,7 @@
         "t1gor/robots-txt-parser": "^0.2.5",
         "simplepie/simplepie": "^1.9",
         "ext-pdo_sqlite": "*",
-        "ext-simplexml": "*"
+        "ext-simplexml": "*",
+        "wamania/php-stemmer": "^4.0"
     }
 }

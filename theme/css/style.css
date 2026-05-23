@@ -47,6 +47,22 @@ article header {
     color: darkgreen;
 }
 
+.article-also {
+    margin: 0.75rem 0 0 0;
+    padding: 0.5rem 0 0 0;
+    list-style: none;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+}
+
+.article-also li {
+    margin: 0.25rem 0;
+}
+
+.article-also-site {
+    color: darkgreen;
+}
+
 body > footer {
     padding: 10rem 0 2rem 0;
 

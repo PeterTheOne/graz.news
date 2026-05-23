@@ -71,9 +71,17 @@ $pdo->query('
         title TEXT,
         link TEXT,
         created INTEGER,
+        description TEXT,
         UNIQUE(link)
     )
 ');
+
+// Older databases predate the `description` column. SimplePie already
+// surfaces RSS descriptions; ALTER TABLE ADD COLUMN is cheap in SQLite.
+$articleColumns = $pdo->query('PRAGMA table_info(articles)')->fetchAll(PDO::FETCH_COLUMN, 1);
+if (!in_array('description', $articleColumns, true)) {
+    $pdo->exec('ALTER TABLE articles ADD COLUMN description TEXT');
+}
 
 $insertNewsSite = $pdo->prepare('
     INSERT OR REPLACE INTO newsSites (
@@ -116,11 +124,13 @@ $insertArticle = $pdo->prepare('
         site,
         title,
         link,
-        created
+        created,
+        description
     ) VALUES (
         :site,
         :title,
         :link,
-        :created
+        :created,
+        :description
     )
 ');
