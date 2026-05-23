@@ -63,6 +63,12 @@ foreach ($newsSites as $newsSite) {
     $feed->set_feed_url($newsSite['feed']);
     $feed->set_cache_location('./cache');
     $feed->set_useragent($userAgent);
+    // Stadt Graz returns HTML unless we explicitly Accept feed mime-types.
+    $feed->set_curl_options([
+        CURLOPT_HTTPHEADER => ['Accept: application/rss+xml, application/atom+xml, application/xml, text/xml'],
+    ]);
+    // OÖNachrichten serves valid RSS as application/octet-stream.
+    $feed->force_feed(true);
     $feed->init();
 
     foreach ($feed->get_items() as $item) {

@@ -14,16 +14,13 @@ mur.at,https://mur.at/,https://mur.at/feed/,https://mur.at/robots.txt,FALSE
 Radio Helsinki,https://helsinki.at/,https://helsinki.at/feed/,https://helsinki.at/robots.txt,FALSE
 Megaphon,https://www.megaphon.at/,https://www.megaphon.at/feed/,https://www.megaphon.at/robots.txt,FALSE
 5 Minuten,https://www.5min.at/,https://www.5min.at/feed/,https://www.5min.at/robots.txt,TRUE
-Regionews.at,http://www.regionews.at/,http://www.regionews.at/rss/general.news.rss.php,http://www.regionews.at/robots.txt,TRUE
 krone.at,http://www.krone.at,http://api.krone.at/v1/rss/rssfeed.html,http://www.krone.at/robots.txt,TRUE
 derStandard.at,https://www.derstandard.at/,https://www.derstandard.at/rss/inland,https://www.derstandard.at/robots.txt,TRUE
 kurier.at,https://kurier.at/,https://kurier.at/xml/rss,https://kurier.at/robots.txt,TRUE
-Salzburger Nachrichten,https://www.sn.at/,https://www.sn.at/xml/rss,https://www.sn.at/robots.txt,TRUE
 Tiroler Tageszeitung,https://www.tt.com/,https://www.tt.com/rss/news.xml,https://www.tt.com/robots.txt,TRUE
 OÖNachrichten,https://www.nachrichten.at/,https://www.nachrichten.at/storage/rss/rss/newsline.rss,https://www.nachrichten.at/robots.txt,TRUE
 Der Ennstaler,https://www.derennstaler.at/,https://www.derennstaler.at/rss.xml,https://www.derennstaler.at/robots.txt,TRUE
 The Local Austria,https://www.thelocal.at/,https://feeds.thelocal.com/rss/at,https://feeds.thelocal.com/robots.txt,TRUE
-ÖBB Presse,https://presse.oebb.at/,https://presse.oebb.at/en/newsfeed,https://presse.oebb.at/robots.txt,TRUE
 BMI Presse,https://www.bmi.gv.at/,https://www.bmi.gv.at/rss/bmi_presse.xml,https://www.bmi.gv.at/robots.txt,TRUE
 Bundesheer,https://www.bundesheer.at/,https://www.bmlv.gv.at/misc/rss.php?topic=topnews,https://www.bmlv.gv.at/robots.txt,TRUE
 VfGH,https://www.vfgh.gv.at/,https://www.vfgh.gv.at/rss/rss_Feed.de.xml,https://www.vfgh.gv.at/robots.txt,TRUE
