@@ -120,7 +120,7 @@ $insertRobots = $pdo->prepare('
 ');
 
 $insertArticle = $pdo->prepare('
-    INSERT OR IGNORE INTO articles (
+    INSERT INTO articles (
         site,
         title,
         link,
@@ -133,4 +133,7 @@ $insertArticle = $pdo->prepare('
         :created,
         :description
     )
+    ON CONFLICT(link) DO UPDATE SET
+        title = excluded.title,
+        description = excluded.description
 ');
