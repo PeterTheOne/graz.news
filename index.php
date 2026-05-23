@@ -10,9 +10,9 @@ define('THEMES_PATH', 'theme/');
 $articles = $pdo->query('
   SELECT * FROM articles
   WHERE site IN (
-    SELECT site FROM (
-      SELECT site, allowed FROM robots GROUP BY site ORDER BY requested DESC
-    ) WHERE allowed = 1
+    SELECT r1.site FROM robots r1
+    WHERE r1.allowed = 1
+    AND r1.requested = (SELECT MAX(r2.requested) FROM robots r2 WHERE r2.site = r1.site)
   )
   ORDER BY created DESC LIMIT 27
 ')->fetchAll();
