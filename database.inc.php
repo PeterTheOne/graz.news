@@ -63,6 +63,8 @@ if (stripos(preg_replace('/\s+/', '', $robotsSchema), 'UNIQUE(site,content)') ==
     }
 }
 
+$pdo->exec('CREATE INDEX IF NOT EXISTS robots_site_requested ON robots(site, requested)');
+
 $pdo->query('
     CREATE TABLE IF NOT EXISTS articles (
         site TEXT,
