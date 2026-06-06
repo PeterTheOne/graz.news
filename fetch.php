@@ -1,5 +1,8 @@
 <?php
 
+// Cron's CWD is $HOME, not the project dir.
+chdir(__DIR__);
+
 require_once 'vendor/autoload.php';
 require_once 'database.inc.php';
 require_once 'functions.inc.php';
